@@ -16,7 +16,7 @@ def main():
         print("Config file {} not found".format(configFile))
     config = toml.load(configFile)
     logging.basicConfig(
-        filename=config['log']['destination'],
+        stream=sys.stdout,
         format="%(asctime)s %(levelname)s %(message)s"
     )
     logging.getLogger().setLevel(config["log"]["level"])

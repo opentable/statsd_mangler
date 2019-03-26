@@ -1,12 +1,20 @@
 import logging
 import time
 import toml
+import sys
+import os.path
 from statsd_mangler import StatsdListener
 from statsd_mangler import StatsdSender
 from statsd_mangler import Mangler
 
 def main():
-    config = toml.load('statsd_mangler.toml')
+    if len(sys.argv) < 2:
+        print("statsd_mangler <statsd_mangler.toml>")
+        exit(1)
+    configFile = sys.argv[1]
+    if not os.path.isfile(configFile):
+        print("Config file {} not found".format(configFile))
+    config = toml.load(configFile)
     logging.basicConfig(
         filename=config['log']['destination'],
         format="%(asctime)s %(levelname)s %(message)s"

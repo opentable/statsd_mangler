@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="statsd_mangler",
-    version="0.1.2",
+    version="0.1.3",
     packages=find_packages(),
     install_requires=['toml>=0.10.0'],
     entry_points = {

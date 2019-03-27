@@ -7,7 +7,8 @@ class StatsdSender(object):
             socket.AF_INET,
             socket.SOCK_DGRAM
         )
-        self.dest = (host, port)
+        ip = socket.gethostbyname(host)
+        self.dest = (ip, port)
 
     def send(self, data):
         logging.debug("Sending data: %s", data)

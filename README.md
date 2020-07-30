@@ -4,6 +4,13 @@ series of search and replace regexes and modifies metric names as they are
 emitted. The intent is for this to listen on port 8125 and receive metrics and
 forward them after changing the metric names.
 
+# Installation
+Simpy install with pip
+
+```
+pip install statsd-mangler
+```
+
 # Usage
 Simply write a config file as described below and run:
 
